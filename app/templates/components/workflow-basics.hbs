@@ -1,4 +1,4 @@
 {{yield}}
-DOI: {{input value=model.doi}}
-Title: {{input value=model.title}}
-Journal: {{input value=model.journal}}
+<p>DOI: {{input value=model.doi focus-out=(action 'validateDOI')}} {{if (not validDOI) 'Invalid DOI'}}</p>
+<p>Title: {{input value=model.title focus-out=(action 'validateTitle')}} {{if (not validTitle) 'Invalid Title'}}</p>
+<p>Journal: {{input value=model.journal}}</p>

@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-
+import _ from 'lodash';
 export default Component.extend({
   // common: {
   //   id: 'common',
@@ -273,31 +273,32 @@ export default Component.extend({
   // },
 
   schema: {},
-  schemas: [],
+//  schemas: [],
   currentFormStep: 0,
-
-  didInsertElement() {
-    // this.set('schemas', [this.get('common'), this.get('nih'), this.get('embargo')]);
+  schemas: Ember.computed('metadataForms', function () {
     // this.set('schemas', [this.get('common')]);
-
     console.log(this.get('metadataForms'))
-    debugger
+    let schemas = this.get('schemas');
+
     this.get('metadataForms').forEach((form) => {
-      const schemas = this.get('schemas');
-      debugger
       if (form) {
         try {
           const parsedForm = JSON.parse(form);
           schemas.addObject(parsedForm);
-          debugger
         } catch (e) {
           console.log('ERROR:', e);
         }
       }
     });
-
+    debugger
     //set the first form
     this.set('schema', this.schemas[0]);
+
+    return _.uniqBy(schemas, 'id');
+  }),
+  didInsertElement() {
+    // this.set('schemas', [this.get('common'), this.get('nih'), this.get('embargo')]);
+
   },
 
   activePolicies: Ember.computed('model.newSubmission', function () {

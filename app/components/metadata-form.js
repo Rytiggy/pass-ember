@@ -284,6 +284,8 @@ export default Ember.Component.extend({
   didRender() {
     this._super(...arguments);
     const that = this;
+    console.log('DEBUGGER STEP 3')
+    debugger
     const originalForm = this.get('schema');
     const newForm = JSON.parse(JSON.stringify(originalForm));
     if (!originalForm.options) {

@@ -266,7 +266,7 @@ export default Route.extend(ApplicationRouteMixin, {
         metadata: `{
           "id": "jhu",
           "schema": {
-            "title": "Johns Hopkins - JScholarship, <br><p class='lead text-muted'>Deposit requirements for JH's institutional repository JScholarship.</p>",
+            "title": "Johns Hopkins - JScholarship, <br><p class="lead text-muted">Deposit requirements for JH's institutional repository JScholarship.</p>",
             "type": "object",
             "properties": {
               "under-embargo": {
@@ -293,13 +293,14 @@ export default Route.extend(ApplicationRouteMixin, {
                 "fieldClass": "col-8 pull-left pl-0"
               },
               "Embargo-end-date": {
+                "label": "Embargo End Date",
                 "type": "date",
                 "placeholder": "mm/dd/yyyy",
                 "fieldClass": "col-4 pull-left pl-0"
               },
               "embargo": {
                 "type": "textarea",
-                "label": "Embargo information",
+                "label": "Deposit Agreement",
                 "disabled": true,
                 "rows": "16"
               },

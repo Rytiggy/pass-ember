@@ -273,6 +273,7 @@ export default Component.extend({
   // },
 
   schema: {},
+  schemas: [],
   currentFormStep: 0,
 
   didInsertElement() {
@@ -294,6 +295,8 @@ export default Component.extend({
         }
       }
     });
+
+    //set the first form
     this.set('schema', this.schemas[0]);
   },
 

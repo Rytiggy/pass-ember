@@ -29,6 +29,10 @@ module.exports = function (environment) {
     enabled: false
   };
 
+  if (environment === 'production') {
+    // put the code here for prod
+  }
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
